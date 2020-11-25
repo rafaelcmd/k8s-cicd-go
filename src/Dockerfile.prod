@@ -2,7 +2,6 @@ FROM golang:1.14-alpine AS build
 
 WORKDIR /src/
 COPY main.go main_test.go /src/
-RUN chmod -R 777 storage
 RUN CGO_ENABLED=0 go build -o /bin/raiz
 
 FROM scratch

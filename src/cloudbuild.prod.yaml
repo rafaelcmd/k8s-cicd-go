@@ -11,7 +11,7 @@ steps:
 
   - id: "Building image from Dockerfile.prod"
     name: "gcr.io/cloud-builders/docker"
-    args: ["build","-t","gcr.io/$PROJECT_ID/go-cicd:$SHORT_SHA","-f","Dockerfile.prod","./src"]
+    args: ["build","-t","gcr.io/$PROJECT_ID/go-cicd:$SHORT_SHA","-f","Dockerfile.prod","/src/"]
 
   - id: "Pushing image"
     name: "gcr.io/cloud-builders/docker"
