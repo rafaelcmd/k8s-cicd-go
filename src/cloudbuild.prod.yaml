@@ -23,5 +23,5 @@ steps:
     args:
       - "-c"
       - |
-        sed "s#rafaelcmd/go-hpa:latest#gcr.io/$PROJECT_ID/go-cicd:$SHORT_SHA#g" ../deployment.yaml > ../deployment-new.yaml;
-        cat ../deployment-new.yaml
+        sed "s#rafaelcmd/go-hpa:latest#gcr.io/$PROJECT_ID/go-cicd:$SHORT_SHA#g" deployment.yaml > deployment-new.yaml;
+        cat deployment-new.yaml
