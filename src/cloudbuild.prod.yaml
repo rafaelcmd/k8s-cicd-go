@@ -25,3 +25,13 @@ steps:
       - |
         sed "s#rafaelcmd/go-hpa:latest#gcr.io/$PROJECT_ID/go-cicd:$SHORT_SHA#g" deployment.yaml > deployment-new.yaml;
         cat deployment-new.yaml
+
+  - id: "Deploying k8s"
+    name: "gcr.io/cloud-builders/kubectl"
+    args:
+      - "apply"
+      - "-f"
+      - "deployment-new.yaml"
+    env:
+    - "CLOUDDKS_COMPUTE_ZONE=us-central1-c"
+    - "CLOUDSDK_CONTAINER_CLUSTER=docker-go-cicd"
