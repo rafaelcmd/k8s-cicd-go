@@ -16,3 +16,12 @@ steps:
   - id: "Pushing image"
     name: "gcr.io/cloud-builders/docker"
     args: ["push","gcr.io/$PROJECT_ID/go-cicd:$SHORT_SHA"]
+  
+  - id: "Adjusting deployment file - k8s"
+    name: "gcr.io/cloud-builders/gcloud"
+    entrypoint: "/bin/sh"
+    args:
+      - "-c"
+      - |
+        sed "s#rafaelcmd/go-hpa:latest#gcr.io/$PROJECT_ID/go-cicd:$SHORT_SHA#g" ../deployment.yaml > ../deployment-new.yaml;
+        cat ../deployment-new.yaml
