@@ -1,0 +1,10 @@
+steps:
+  - id: "Instalando Go"
+    name: "gcr.io/cloud-builders/go"
+    args: ["install", "./src"]
+    env: ["PROJECT_ROOT=main"]
+
+  - id: "Testando"
+    name: "gcr.io/cloud-builders/go"
+    args: ["test", "./src"]
+    env: ["PROJECT_ROOT=main"]

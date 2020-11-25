@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-cicd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: raiz
+  template:
+    metadata:
+      labels:
+        app: raiz
+    spec:
+      containers:
+        - name: go
+          image: rafaelcmd/go-hpa:latest
+          ports:
+            - containerPort: 80
