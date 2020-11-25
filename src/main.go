@@ -13,7 +13,7 @@ func raiz(num float64) string {
 		x += math.Sqrt(x)
 	}
 
-	return "Code.education Rocks!"
+	return "Code.education Rocks!!"
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
